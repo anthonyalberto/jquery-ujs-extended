@@ -21,6 +21,12 @@ For all the above, DOM elements should be passed like this :
 * ID : `data: {ajax: {update: 'dom_id'}}` or `data: {ajax: {update: '#dom_id'}}` or `data: {ajax: {update: :dom_id}}`
 * Class : `data: {ajax: {update: '.dom_class'}}`
 
+
+###Behavior
+* data-integer. If specified and applied to a text field, will prevent the field from being anything but an integer.Optional value: minimum quantity.
+
+
 ###Animations?
 Version 2. Might be interesting to add support for jQuery standard animations aka Fade In etc ...
+
 
