@@ -14,19 +14,14 @@ Provide :
 * data-ajax-delete listener that automatically deletes the DOM element
 * data-ajax-append listener that automatically appends to the DOM element
 * data-ajax-loader. Takes a DOM element. Will show the DOM element before sending the request, and hide it when the request is completed. This is best used to show a spinner image during a request.
-* data-ajax-freeze. Freezes the whole page by placing a transparent element on top of the DOM body. Takes a DOM element ID that will serve as the loader/spinner displayed in the middle of the viewPort.
 * data-ajax-redirect. Takes a url. Redirects to the url on ajax success.
+* data-ajax-input-url. Applies to form inputs. Calls the url whenever the field has changed. Compatible with data-method and all the above.
 
 For all the above, DOM elements should be passed like this :
 * ID : `data: {ajax: {update: 'dom_id'}}` or `data: {ajax: {update: '#dom_id'}}` or `data: {ajax: {update: :dom_id}}`
 * Class : `data: {ajax: {update: '.dom_class'}}`
 
-
-###Behavior
-* data-integer. If specified and applied to a text field, will prevent the field from being anything but an integer.Optional value: minimum quantity.
-
-
-###Animations?
-Version 2. Might be interesting to add support for jQuery standard animations aka Fade In etc ...
-
+###Behaviour
+* data-integer. If specified and applied to a text field, will prevent the field from being anything but an integer.Optional value: minimum value.
+* data-float. If specified and applied to a text field, will prevent the field from being anything but a float.Optional value: minimum value.
 
