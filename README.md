@@ -25,7 +25,7 @@ When specifying a target DOM element in custom data attributes, you have to use 
 
 ##Ajax listeners
 
-This applies to <form> and <a> elements. Needs to be used with `data-remote` from jquery-ujs
+This applies to &lt;form&gt; and &lt;a&gt; elements. Needs to be used with `data-remote` from jquery-ujs
 
 * data-update listener that automatically updates the DOM elements
        link_to "Update", url_path, data: {remote: true, update: "#div1"}
