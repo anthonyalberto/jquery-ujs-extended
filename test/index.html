@@ -1,19 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Home</title>
-  <script type="text/javascript" src="/js/jquery_ujs_extended.js"></script>
-  <script type="text/javascript">
+    <meta charset="utf-8">
+    <title>Home</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/rails/jquery-ujs/master/src/rails.js"></script>
 
-  </script>
+
+    <script type="text/javascript" src="/js/jquery_ujs_extended.js"></script>
+    <style>
+        div{background:#eee;float:left;margin-right:30px;padding:10px;margin-top:10px;}
+        #receiver{position:static;bottom:0;right:0;}
+        h2{margin:5px 0px;}
+    </style>
 </head>
 <body class="page-index">
-  <div style="background:#ccc;height:5000px;width:200px;">
-      Integer minimum 5 <input type="text" data-integer='5'/><br/>
-      Integer no minimum <input type="text" data-integer=''/><br/>
-      Float minimum 5.0 <input type="text" data-integer='5.0'/><br/>
-      Float no minimum <input type="text" data-integer=''/><br/>
-  </div>
+
+<div>
+    <h2>Testing links data-*</h2>
+    <a href="/ajax.html" data-remote='true' data-update='#receiver'>update</a>
+    <a href="/ajax.html" data-remote='true' data-destroy='#destroyed'>destroy</a>
+    <a href="/ajax.html" data-remote='true' data-append='#receiver'>append</a><br/>
+    <a href="/ajax.html" data-remote='true' data-loader='#spinner'>loader</a>
+    <a href="/ajax.html" data-remote="true" data-redirect='/index.html?redirected=true'>redirect</a>
+</div>
+
+<div>
+    <h2>Testing forms data-*</h2>
+    <form data-remote='true' data-update='#receiver' method='get' action='/ajax.html'><input type="submit" value='update'/></form>
+    <form data-remote='true' data-destroy='#destroyed' method='get' action='/ajax.html'><input type="submit" value='destroy'/></form>
+    <form data-remote='true' data-append='#receiver' method='get' action='/ajax.html'><input type="submit" value='append'/></form>
+    <form data-remote='true' data-loader='#spinner' method='get' action='/ajax.html'><input type="submit" value='loader'/></form>
+    <form data-remote='true' data-redirect='/index.html?redirected=true' method='get' action='/ajax.html'><input type="submit" value='redirect'/></form>
+</div>
+
+<div>
+    <h2>Testing data-url</h2>
+    update <input type="text" value='1' data-url='/ajax.html' data-update='#receiver' data-type='html' name="quantity" data-integer='1'/><br/>
+    append <input type="text" value='1' data-url='/ajax.html' data-append='#receiver' data-type='html' name="quantity" data-integer='1'/><br/>
+    destroy <input type="text" value='1' data-url='/ajax.html' data-destroy='#destroyed' data-type='html' name="quantity" data-integer='1'/><br/>
+    loader <input type="text" value='1' data-url='/ajax.html' data-loader='#spinner' data-type='html' name="quantity" data-integer='1'/><br/>
+    redirect <input type="text" value='1' data-url='/ajax.html' data-redirect='/index.html?redirected=true' data-type='html' name="quantity" data-integer='1'/><br/>
+    <br/>
+    update <select data-url='/ajax.html' data-update='#receiver' data-type='html' name="quantity"><option value="1">1</option><option value="2" >2</option></select><br/>
+    append <select data-url='/ajax.html' data-append='#receiver' data-type='html' name="quantity"><option value="1">1</option><option value="2" >2</option></select><br/>
+    destroy <select data-url='/ajax.html' data-destroy='#destroyed' data-type='html' name="quantity"><option value="1">1</option><option value="2" >2</option></select><br/>
+    loader <select data-url='/ajax.html' data-loader='#spinner' data-type='html' name="quantity"><option value="1">1</option><option value="2" >2</option></select><br/>
+    redirect <select data-url='/ajax.html' data-redirect='/index.html?redirected=true' data-type='html' name="quantity"><option value="1">1</option><option value="2" >2</option></select>
+</div>
+
+<div>
+    <h2>Testing data-integer</h2>
+    Integer minimum 5 <input type="text" data-integer='5'/><br/>
+    Integer no minimum <input type="text" data-integer=''/><br/>
+</div>
+
+<div>
+    <h2>Testing data-float</h2>
+    Float minimum 5.3 <input type="text" data-float='5.3'/><br/>
+    Float no minimum <input type="text" data-float=''/><br/>
+</div>
+
+<div id="receiver">I am the receiver</div>
+<div id="destroyed">I'll be destroyed</div>
+<img src="/spinner.gif" style='display:none;' id="spinner"/>
+<span id="date_receiver"></span>
+<script type="text/javascript">
+    $(document).on('ajax:success', "[data-loader]", function(){
+        alert('Alert to show that the spinner does show up')
+    })
+</script>
 </body>
 </html>
