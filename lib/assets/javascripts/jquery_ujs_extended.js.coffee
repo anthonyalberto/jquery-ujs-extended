@@ -10,9 +10,11 @@ $ ->
       element.val(value)
     else if isNaN(value)
       element.val('')
+    else
+      element.val(value)
 
 
-  $(document).on 'ajax:before', ajaxSelectors('data-update'), (evt, data) ->
+  $(document).on 'ajax:success', ajaxSelectors('data-update'), (evt, data) ->
     $($(this).data 'update').html(data)
 
   $(document).on 'ajax:success', ajaxSelectors('data-destroy'), (evt, data) ->
