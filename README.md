@@ -29,29 +29,29 @@ This applies to &lt;form&gt; and &lt;a&gt; elements. Needs to be used with `data
 
 * data-update listener that automatically updates the DOM elements
 
-       link_to "Update", url_path, data: {remote: true, update: "#div1"}
-       form_for @object, data: {remote: true, update: "#div1"}
+        link_to "Update", url_path, data: {remote: true, update: "#div1"}
+        form_for @object, data: {remote: true, update: "#div1"}
 * data-destroy listener that automatically deletes the DOM elements
 
-       link_to "Destroy", url_path, data: {remote: true, destroy: ".class1"}
-       form_for @object, data: {remote: true, destroy: ".class1 .class2"}
+        link_to "Destroy", url_path, data: {remote: true, destroy: ".class1"}
+        form_for @object, data: {remote: true, destroy: ".class1 .class2"}
 * data-append listener that automatically appends to the DOM elements
 
-       link_to "Append", url_path, data: {remote: true, append: "#div1 span .class1"}
+        link_to "Append", url_path, data: {remote: true, append: "#div1 span .class1"}
 * data-loader. Takes a DOM element. Will show the DOM element before sending the request, and hide it when the request is completed. This is best used to show a spinner image during a request.
 
-       <%= link_to "Loader", url_path, data: {remote: true, append: ".loader"} %>
-       <%= image_tag "/my/image.jpg", style: {display:'none'}, class: 'loader' %>
+        <%= link_to "Loader", url_path, data: {remote: true, append: ".loader"} %>
+        <%= image_tag "/my/image.jpg", style: {display:'none'}, class: 'loader' %>
 * data-redirect. Takes a url. Redirects to the url on ajax success.
 
-       link_to "redirect", url_path, data: {remote: true, redirect: "/my/url"}
+        link_to "redirect", url_path, data: {remote: true, redirect: "/my/url"}
 
 ##Ajax requests
 
 * data-url. Applies to form inputs. Calls the url whenever the field has changed. 
 Compatible with data- methods above. Specify a data-attribute containing the name of the attribute to send to the server, otherwise will use the 'name' of the field.
 
-       <%= select_tag "country", options_for_select_from_collection(Country.all), data:{url:'/my/ajax_url', update:'#state_select', type: 'html'}
+        <%= select_tag "country", options_for_select_from_collection(Country.all), data:{url:'/my/ajax_url', update:'#state_select', type: 'html'}
 
 For all the above, DOM elements should be passed like this :
 * ID : `data: {update: '#dom_id'}`
@@ -61,9 +61,11 @@ For all the above, DOM elements should be passed like this :
 ##Behaviour
 
 * data-integer. If specified and applied to a text field, will prevent the field from being anything but an integer.Value: minimum value. Leave blank if you don't want one.
-    text_field_tag "quantity", 1, data: {integer: 1}
+
+        text_field_tag "quantity", 1, data: {integer: 1}
 * data-float. If specified and applied to a text field, will prevent the field from being anything but a float.Value: minimum value. Leave blank if you don't want one.
-    text_field_tag "price", 1, data: {float: 0.01}
+
+        text_field_tag "price", 1, data: {float: 0.01}
 
 
 #Bugs? Thoughts? Ideas to make it better?
