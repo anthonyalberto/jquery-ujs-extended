@@ -46,7 +46,7 @@ This applies to &lt;form&gt;, &lt;a&gt;, &lt;input&gt; and &lt;select&gt; elemen
         link_to "Append", url_path, data: {remote: true, append: "#div1 span .class1"}
 * data-loader. Takes a DOM element. Will show the DOM element before sending the request, and hide it when the request is completed. This is best used to show a spinner image during a request.
 
-        <%= link_to "Loader", url_path, data: {remote: true, append: ".loader"} %>
+        <%= link_to "Loader", url_path, data: {remote: true, loader: ".loader"} %>
         <%= image_tag "/my/image.jpg", style: {display:'none'}, class: 'loader' %>
 * data-redirect. Takes a url. Redirects to the url on ajax success.
 
