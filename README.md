@@ -14,10 +14,16 @@ Requires :
 - jquery-rails
 
 #Installation
+In your Gemfile `assets` group, put:
 
-Before it's released as a gem, you can open your Gemfile and in the asset group add :
+    gem 'jquery_ujs_extended'
 
-    gem 'jquery_ujs_extended', git: https://github.com/anthonyalberto/jquery-ujs-extended
+Then `bundle install` as usual.
+Edit `application.js` to add :
+
+    //= require jquery_ujs_extended
+
+Restart your webserver and all should be fine
 
 #Usage
 
