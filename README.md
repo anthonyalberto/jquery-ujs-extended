@@ -25,7 +25,7 @@ When specifying a target DOM element in custom data attributes, you have to use 
 
 ##Ajax listeners
 
-This applies to &lt;form&gt; and &lt;a&gt; elements. Needs to be used with `data-remote` from jquery-ujs
+This applies to &lt;form&gt;, &lt;a&gt;, &lt;input&gt; and &lt;select&gt; elements. Needs to be used with `data-remote` from jquery-ujs
 
 * data-update listener that automatically updates the DOM elements
 
@@ -45,18 +45,6 @@ This applies to &lt;form&gt; and &lt;a&gt; elements. Needs to be used with `data
 * data-redirect. Takes a url. Redirects to the url on ajax success.
 
         link_to "redirect", url_path, data: {remote: true, redirect: "/my/url"}
-
-##Ajax requests
-
-* data-url. Applies to form inputs. Calls the url whenever the field has changed. 
-Compatible with data- methods above. Specify a data-attribute containing the name of the attribute to send to the server, otherwise will use the 'name' of the field.
-
-        <%= select_tag "country", options_for_select_from_collection(Country.all), data:{url:'/my/ajax_url', update:'#state_select', type: 'html'}
-
-For all the above, DOM elements should be passed like this :
-* ID : `data: {update: '#dom_id'}`
-* Class : `data: {update: '.dom_class'}`
-* Chaining : `data: {update: '#dom_id #dom_id2 .dom_class'}`
 
 ##Behaviour
 
