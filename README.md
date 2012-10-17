@@ -54,12 +54,14 @@ This applies to &lt;form&gt;, &lt;a&gt;, &lt;input&gt; and &lt;select&gt; elemen
 
 ##Behaviour
 
-* data-integer. If specified and applied to a text field, will prevent the field from being anything but an integer.Value: minimum value. Leave blank if you don't want one.
+* data-integer. If specified and applied to a text field, will prevent the field from being anything but an integer.Value: minimum value or range like 1..10000. Leave blank if you don't want one.
 
         text_field_tag "quantity", 1, data: {integer: 1}
-* data-float. If specified and applied to a text field, will prevent the field from being anything but a float.Value: minimum value. Leave blank if you don't want one.
+        text_field_tag "quantity", 1, data: {integer: 1..10000}
+* data-float. If specified and applied to a text field, will prevent the field from being anything but a float.Value: minimum value or range like 1..10000. Leave blank if you don't want one.
 
         text_field_tag "price", 1, data: {float: 0.01}
+        text_field_tag "price", 1, data: {float: 0.01..10000}
 
 
 #Bugs? Thoughts? Ideas to make it better?

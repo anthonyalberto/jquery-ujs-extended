@@ -3,7 +3,7 @@ $ ->
     "input[#{attribute}], a[#{attribute}], form[#{attribute}], textarea[#{attribute}], select[#{attribute}]"
 
   #Ugly ... there must be a better way to do it ...
-  updateNumberField = (element, min_value, value) ->
+  updateNumberField = (element, min_value, max_value, value) ->
     if(!isNaN(min_value) && ((value < min_value) || isNaN(value)))
       element.val(min_value)
     else if isNaN(min_value) && !isNaN(value)
@@ -12,6 +12,9 @@ $ ->
       element.val('')
     else
       element.val(value)
+
+    if(!isNaN(max_value) && !isNaN(value) && value > max_value)
+      element.val(max_value)
 
 
   $(document).on 'ajax:success', ajaxSelectors('data-update'), (evt, data) ->
@@ -33,9 +36,14 @@ $ ->
     window.location.replace($(@).data 'redirect')
 
   $(document).on 'change', ajaxSelectors('data-integer'), (evt, data) ->
-    min_value = parseInt($(@).data('integer'))
+
+    tab_value = $(@).data('integer').split("..")
+
+    min_value = parseInt(tab_value[0])
+    max_value = tab_value[1]
+
     value = parseInt($(@).val())
-    updateNumberField($(@), min_value, value)
+    updateNumberField($(@), min_value, max_value, value)
 
   $(document).on 'change', ajaxSelectors('data-float'), (evt, data) ->
     min_value = parseFloat($(@).data('float'))
